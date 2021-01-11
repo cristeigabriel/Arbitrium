@@ -6,3 +6,10 @@ In the latest commit, there's currently no features as the software is in early 
 
 # Goals
 Arbitrium's primary goal is to be an easy to pick up cheat, to twist to one's own needs either by means of code or configuration, meant to be easy to understand/follow. It also follows a strict organization 'guideline' to section out code by relevancy for filter by usage of static libraries.
+
+# Code Guidelines
+W.I.P
+
+Arbitrium project code must follow a class object orientated design, with hungarian notation for classes/structures and for globals. Code must be written in camelCase.
+CSGO project code must follow the Valve structure as closely as possible, by means of class/structure names that is. Members can be changed to fit the Arbitrium principal design, and so can be enums/other such utilities.
+Shared project code must follow the folder name structure by namespace in pair with class object orientated design. Code must be written in camelCase and standardized.
