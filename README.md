@@ -13,7 +13,7 @@ Either should create a folder 'Arbitrium' which contains the Git page tree.
 
 Once we have this done, proceed to open the ```Arbitrium.sln``` file, change your build settings to ```Debug | x86``` or ```Release | x86``` depending on what you're planning to do, then press F5. This'll proceed to build the static libraries required for the principal project of the solution [Arbitrium] then proceed to build a DLL with the aforementioned linked.
 
-**! You don't need to share the '.lib' files when you wish to send the cheat binary to someone. These are built just to be ultimately linked. Consider them compilation dependencies.``` 
+**! You don't need to share the '.lib' files when you wish to send the cheat binary to someone. These are built just to be ultimately linked. Consider them compilation dependencies.**
 
 # Contributing
 Contributions are welcome under the form of [pull requests](https://github.com/cristeigabriel/Arbitrium/pulls), you can do one if you consider that something could be done in a better way, if you want to contribute in regards of the overall functionality, or whatever you deem fit. If you're currently undecided on whether you should, or not, open a pull request, you can refer to the [issues](https://github.com/cristeigabriel/Arbitrium/issues) page. Furthermore, you can also contribute by noting out issues and [reporting them](https://github.com/cristeigabriel/Arbitrium/issues).
