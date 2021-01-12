@@ -12,7 +12,3 @@
 
 extern memory::modulesWrapper gModules;
 extern memory::addressesWrapper gAddresses;
-
-extern cGlobals gGlobals;
-extern cInterfaces gInterfaces;
-extern cHooking gHooking;

@@ -168,16 +168,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="console\console.cpp" />
     <ClCompile Include="globals\globals.cpp" />
     <ClCompile Include="hooking\hooking.cpp" />
     <ClCompile Include="hooking\methods\createmove.cpp" />
+    <ClCompile Include="hooking\methods\framestagenotify.cpp" />
     <ClCompile Include="hooking\methods\levelinit.cpp" />
     <ClCompile Include="interfaces\interfaces.cpp" />
     <ClCompile Include="main\entry.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="console\console.h" />
     <ClInclude Include="globals\globals.h" />
     <ClInclude Include="hooking\hooking.h" />
     <ClInclude Include="hooking\prototypes.h" />

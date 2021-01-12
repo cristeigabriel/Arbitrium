@@ -41,7 +41,7 @@ namespace memory
 		modulesWrapper();
 
 		template <size_t N>
-		constexpr void initializer(const std::array<const char*, N> baseModules)
+		void initializer(const std::array<const char*, N> baseModules)
 		{
 			for (const auto& _module : baseModules)
 			{
@@ -55,7 +55,7 @@ namespace memory
 		}
 
 		template <size_t N>
-		constexpr modulesWrapper(const std::array<const char*, N> baseModules)
+		modulesWrapper(const std::array<const char*, N> baseModules)
 		{
 			initializer(baseModules);
 		}

@@ -2,12 +2,7 @@
 #include "prototypes.h"
 #include "../main/entry.h"
 
-cHooking::cHooking()
-{
-
-}
-
-bool cHooking::initializer()
+bool hooking::initializer()
 {
 	_hook = gAddresses.findRelToAbs<hookingGameOverlayRendererHookMethod>("gameoverlayrenderer.dll",
 		{ 0xE8, -1, -1, -1, -1, 0x83, 0xC4, 0x10, 0xEB, 0x21 },
@@ -43,16 +38,32 @@ bool cHooking::initializer()
 	if (!prototypes::signatures::createMove)
 		return false;
 
+	// "Setting fallback player" warning within the function
+	// https://git.byr.ac.cn/Gaojianli/cstrike15_src/-/blob/master/game/client/cdll_client_int.cpp#L3486
+	// also https://git.byr.ac.cn/Gaojianli/cstrike15_src/-/blob/master/game/client/cdll_client_int.cpp#L3482
+	// CHLClient FrameStageNotify 55 8B EC 8B 0D ? ? ? ? 8B 01 8B 80 ? ? ? ? FF D0 A2 ? ? ? ? 
+	prototypes::signatures::frameStageNotify = gAddresses.find<LPVOID>("client.dll",
+		{ 0x55, 0x8B, 0xEC, 0x8B, 0x0D, -1, -1, -1, -1, 0x8B, 0x01, 0x8B, 0x80, -1, -1, -1, -1, 0xFF, 0xD0, 0xA2, -1, -1, -1, -1 }
+	);
+
+	if (!prototypes::signatures::frameStageNotify)
+		return false;
+
 	if (!applyHook<prototypes::levelInit>(prototypes::signatures::levelInit))
 		return false;
 
 	if (!applyHook<prototypes::createMove>(prototypes::signatures::createMove))
 		return false;
 
+	if (!applyHook<prototypes::frameStageNotify>(prototypes::signatures::frameStageNotify))
+		return false;
+
 	return true;
 }
 
-cHooking::~cHooking()
+void hooking::release()
 {
-
+	disableHook(prototypes::signatures::levelInit);
+	disableHook(prototypes::signatures::createMove);
+	disableHook(prototypes::signatures::frameStageNotify);
 }

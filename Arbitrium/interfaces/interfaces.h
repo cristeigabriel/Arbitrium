@@ -3,19 +3,13 @@
 #include <CSGO/defines.h>
 #include <Shared/memory/memory.h>
 
-class cInterfaces : public memory::memoryWrapper
+namespace interfaces
 {
-public:
-	CHLClient* client;
-	ClientModeShared* clientModeShared;
-	CGlobalVarsBase* globalVars;
-	CCSGO_HudChat* csgoHudChat;
-	CHudChat* hudChat;
-
-public:
-	cInterfaces();
+	static CHLClient* client;
+	static ClientModeShared* clientModeShared;
+	static CGlobalVarsBase* globalVars;
+	static CCSGO_HudChat* csgoHudChat;
+	static CHudChat* hudChat;
 
 	bool initializer();
-	
-	~cInterfaces();
 };

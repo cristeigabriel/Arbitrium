@@ -14,16 +14,15 @@ namespace hashing
 	template <typename T, T val>
 	struct constantHolder
 	{
-		enum class valueHolder : T
+		enum valueHolder : T
 		{
 			value = val
 		};
 	};
-#define constant(value) ((decltype(value))constantHolder<decltype(value), value>::valueHolder::value)
 
 	hashType fnv1aRt(const char* key);
-	constexpr hashType fnv1aCt(const char* key, const hashType value = seed);
+	extern constexpr hashType fnv1aCt(const char* key, const hashType value = seed);
 }
 
-#define strHashCT(x) constant(hashing::fnv1aCt(x))
+#define strHashCT(x) hashing::constantHolder<decltype(x), x>valueHolder::value
 #define strHashRT(x) hashing::fnv1aRt(x)

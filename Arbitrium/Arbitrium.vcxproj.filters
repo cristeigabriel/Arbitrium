@@ -21,9 +21,6 @@
     <ClCompile Include="globals\globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="console\console.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="interfaces\interfaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,15 +33,15 @@
     <ClCompile Include="hooking\methods\levelinit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="hooking\methods\framestagenotify.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main\entry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="globals\globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="console\console.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="interfaces\interfaces.h">

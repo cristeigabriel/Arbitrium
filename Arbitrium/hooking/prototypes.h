@@ -1,6 +1,7 @@
 #pragma once
 
 #include <CSGO/defines.h>
+#include <CSGO/enums.h>
 
 #define PROTOTYPE_SIGNATURES(...) \
 struct signatures \
@@ -25,15 +26,18 @@ namespace prototypes
 	PROTOTYPE_SIGNATURES
 	(
 		levelInit,
-		createMove
+		createMove,
+		frameStageNotify
 	);
 
 	DECLARE_SIGNATURES
 	(
 		signatures::levelInit,
-		signatures::createMove
+		signatures::createMove,
+		signatures::frameStageNotify
 	);
 
 	PROTOTYPE_FUNCTION(levelInit, void(__fastcall)(void*, void*, const char*));
 	PROTOTYPE_FUNCTION(createMove, bool(__stdcall)(float, CUserCmd*));
+	PROTOTYPE_FUNCTION(frameStageNotify, void(__stdcall)(clientFrameStages));
 }

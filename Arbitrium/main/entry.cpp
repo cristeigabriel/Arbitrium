@@ -1,9 +1,5 @@
 #include "entry.h"
 
-#include "../console/console.h"
-
-#include <string>
-
 #ifdef COUNT_ALLOCATIONS
 static uint32_t allocCount = 0;
 
@@ -17,15 +13,16 @@ void* operator new(size_t size)
 memory::modulesWrapper gModules;
 memory::addressesWrapper gAddresses;
 
-cGlobals gGlobals;
-cInterfaces gInterfaces;
-cHooking gHooking;
-
 uint32_t WINAPI gameRoutine(HINSTANCE instance)
 {
 #ifdef _DEBUG
-	cConsole console;
+	AllocConsole();
+
+	freopen_s((FILE**)stdin, "CONIN$", "r", stdin);
+	freopen_s((FILE**)stdout, "CONOUT$", "w", stdout); 
 #endif
+
+	globals::shouldRelease = false;
 
 	try
 	{
@@ -41,14 +38,11 @@ uint32_t WINAPI gameRoutine(HINSTANCE instance)
 			});
 
 		gAddresses.initializer(gModules);
-
-		if (!gGlobals.initializer())
-			throw std::runtime_error("Failed to initialize");
 	
-		if (!gInterfaces.initializer())
+		if (!interfaces::initializer())
 			throw std::runtime_error("Failed to initialize");
 
-		if (!gHooking.initializer())
+		if (!hooking::initializer())
 			throw std::runtime_error("Failed to initialize");
 	}
 	catch (const std::exception& err)
@@ -57,27 +51,26 @@ uint32_t WINAPI gameRoutine(HINSTANCE instance)
 		puts(err.what());
 		MessageBoxA(0, err.what(), "Initialization", 0);
 #endif
-		gGlobals.shouldRelease = true;
+		globals::shouldRelease = true;
 	}
 
 #ifdef COUNT_ALLOCATIONS
 	printf("Allocations: %d\n", allocCount);
 #endif
 
-	while (!gGlobals.shouldRelease)
+	while (!globals::shouldRelease)
 		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
-	gHooking.~cHooking();
-
-	gInterfaces.~cInterfaces();
-
-	gGlobals.~cGlobals();
+	hooking::release();
 
 	gAddresses.~addressesWrapper();
 	gModules.~modulesWrapper();
 
 #ifdef _DEBUG
-	console.~cConsole();
+	fclose(stdin);
+	fclose(stdout);
+
+	FreeConsole(); 
 #endif
 
 	FreeLibraryAndExitThread((HMODULE)instance, EXIT_SUCCESS);

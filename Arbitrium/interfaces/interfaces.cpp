@@ -3,23 +3,17 @@
 
 #include <CSGO/include.h>
 
-
-cInterfaces::cInterfaces()
-{
-
-}
-
-bool cInterfaces::initializer()
+bool interfaces::initializer()
 {
 	client = gAddresses.find<CHLClient*>("client.dll", "VClient018");
 	if (!client)
 		return false;
 
-	clientModeShared = **getMethod<ClientModeShared***, 10, 5>(client);
+	clientModeShared = **memory::memoryWrapper::getMethod<ClientModeShared***, 10, 5>(client);
 	if (!clientModeShared)
 		return false;
 
-	globalVars = **getMethod<CGlobalVarsBase***, 11, 10>(client);
+	globalVars = **memory::memoryWrapper::getMethod<CGlobalVarsBase***, 11, 10>(client);
 	if (!globalVars)
 		return false;
 
@@ -32,9 +26,4 @@ bool cInterfaces::initializer()
 		return false;
 
 	return true;
-}
-
-cInterfaces::~cInterfaces()
-{
-
 }

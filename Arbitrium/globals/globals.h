@@ -2,15 +2,7 @@
 
 #include <Shared/memory/memory.h>
 
-class cGlobals
+namespace globals
 {
-public:
-	bool shouldRelease;
-
-public:
-	cGlobals();
-
-	bool initializer();
-
-	~cGlobals();
-};
+	static bool shouldRelease;
+}
