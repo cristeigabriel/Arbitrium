@@ -6,12 +6,3 @@ Arbitrium's primary goal is to be an easy to pick up cheat, to twist to one's ow
 
 # Code Guidelines
 W.I.P
-
-Arbitrium project code must follow a class object orientated design, with hungarian notation for classes/structures and for globals. Code must be written in camelCase.
-
-CSGO project code must follow the Valve structure as closely as possible, by means of class/structure names that is. Members can be changed to fit the Arbitrium principal design, and so can be enums/other such utilities.
-
-Shared project code must follow the folder name structure by namespace in pair with class object orientated design. Code must be written in camelCase and standardized.
-
-# Licensing
-Arbitrium is licensed under the WTFPL v2 license.
