@@ -170,16 +170,16 @@
   <ItemGroup>
     <ClCompile Include="console\console.cpp" />
     <ClCompile Include="globals\globals.cpp" />
-    <ClCompile Include="hooks\hooks.cpp" />
-    <ClCompile Include="hooks\methods\createmove.cpp" />
+    <ClCompile Include="hooking\hooking.cpp" />
+    <ClCompile Include="hooking\methods\createmove.cpp" />
     <ClCompile Include="interfaces\interfaces.cpp" />
     <ClCompile Include="main\entry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="console\console.h" />
     <ClInclude Include="globals\globals.h" />
-    <ClInclude Include="hooks\hooks.h" />
-    <ClInclude Include="hooks\prototypes.h" />
+    <ClInclude Include="hooking\hooking.h" />
+    <ClInclude Include="hooking\prototypes.h" />
     <ClInclude Include="interfaces\interfaces.h" />
     <ClInclude Include="main\entry.h" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 #include <CSGO/include.h>
 
-#include "../hooks.h"
+#include "../hooking.h"
 #include "../prototypes.h"
 
 bool __stdcall prototypes::createMove::hooked(float sampleTime, CUserCmd* cmd)

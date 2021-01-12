@@ -6,7 +6,7 @@
 
 #include "../globals/globals.h"
 #include "../interfaces/interfaces.h"
-#include "../hooks/hooks.h"
+#include "../hooking/hooking.h"
 
 #include <thread>
 

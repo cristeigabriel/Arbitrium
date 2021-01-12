@@ -24,13 +24,13 @@
     <ClCompile Include="console\console.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hooks\hooks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="interfaces\interfaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hooks\methods\createmove.cpp">
+    <ClCompile Include="hooking\methods\createmove.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hooking\hooking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,13 +44,13 @@
     <ClInclude Include="console\console.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hooks\prototypes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="hooks\hooks.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="interfaces\interfaces.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hooking\hooking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hooking\prototypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
