@@ -13,4 +13,6 @@ namespace math
 	public:
 		float x, y, z;
 	};
+
+	using qAngle = vector3D;
 }

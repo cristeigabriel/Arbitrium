@@ -15,15 +15,13 @@ bool cInterfaces::initializer()
 	if (!client)
 		return false;
 
-	do
-	{
-		clientModeShared = **getMethod<ClientModeShared***, 10, 5>(client);
-	} while (!clientModeShared);
+	clientModeShared = **getMethod<ClientModeShared***, 10, 5>(client);
+	if (!clientModeShared)
+		return false;
 
-	do
-	{
-		globalVars = **getMethod<CGlobalVarsBase***, 11, 10>(client);
-	} while (!globalVars);
+	globalVars = **getMethod<CGlobalVarsBase***, 11, 10>(client);
+	if (!globalVars)
+		return false;
 
 	csgoHudChat = gAddresses.find<CCSGO_HudChat*>("CCSGO_HudChat");
 	if (!csgoHudChat)

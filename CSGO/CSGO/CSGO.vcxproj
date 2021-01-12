@@ -27,6 +27,7 @@
     <ClInclude Include="globalvars_base.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="sdk_hud_chat.h" />
+    <ClInclude Include="usercmd.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cdll_client_int.cpp" />

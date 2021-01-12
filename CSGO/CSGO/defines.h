@@ -15,6 +15,8 @@ struct RecvTable;
 struct ClientClass;
 class CSaveRestoreData;
 
+class CUserCmd;
+
 class IBaseClientDLL;
 class CHLClient;
 class CGlobalVarsBase;

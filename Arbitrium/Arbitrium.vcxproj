@@ -171,6 +171,7 @@
     <ClCompile Include="console\console.cpp" />
     <ClCompile Include="globals\globals.cpp" />
     <ClCompile Include="hooks\hooks.cpp" />
+    <ClCompile Include="hooks\methods\createmove.cpp" />
     <ClCompile Include="interfaces\interfaces.cpp" />
     <ClCompile Include="main\entry.cpp" />
   </ItemGroup>

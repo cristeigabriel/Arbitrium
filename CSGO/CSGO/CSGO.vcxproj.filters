@@ -39,6 +39,9 @@
     <ClInclude Include="clientclass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="usercmd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cdll_client_int.cpp">

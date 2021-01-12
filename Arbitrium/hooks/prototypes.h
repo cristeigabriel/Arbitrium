@@ -22,5 +22,15 @@ inline functionName::fn* functionName::original;
 
 namespace prototypes
 {
+	PROTOTYPE_SIGNATURES
+	(
+		createMove
+	);
 
+	DECLARE_SIGNATURES
+	(
+		signatures::createMove
+	);
+
+	PROTOTYPE_FUNCTION(createMove, bool(__stdcall)(float, CUserCmd*));
 }
