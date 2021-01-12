@@ -36,9 +36,5 @@ bool cInterfaces::initializer()
 
 cInterfaces::~cInterfaces()
 {
-	client = nullptr;
-	clientModeShared = nullptr;
-	globalVars = nullptr;
-	csgoHudChat = nullptr;
-	hudChat = nullptr;
+
 }
