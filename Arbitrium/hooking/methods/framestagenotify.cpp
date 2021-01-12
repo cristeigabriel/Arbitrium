@@ -5,6 +5,5 @@
 
 void __stdcall prototypes::frameStageNotify::hooked(clientFrameStages stage)
 {
-	return;
-	//original(stage);
+	original(stage);
 }

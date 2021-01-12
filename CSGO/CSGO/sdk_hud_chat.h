@@ -4,10 +4,10 @@
 
 class CCSGO_HudChat
 {
-
+public:
 };
 
 class CHudChat
 {
-
+public:
 };

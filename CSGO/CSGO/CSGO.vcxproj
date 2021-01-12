@@ -26,6 +26,8 @@
     <ClInclude Include="enums.h" />
     <ClInclude Include="globalvars_base.h" />
     <ClInclude Include="include.h" />
+    <ClInclude Include="inetchannelinfo.h" />
+    <ClInclude Include="inetmessage.h" />
     <ClInclude Include="sdk_hud_chat.h" />
     <ClInclude Include="usercmd.h" />
   </ItemGroup>

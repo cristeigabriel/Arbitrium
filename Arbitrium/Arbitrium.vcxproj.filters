@@ -36,6 +36,9 @@
     <ClCompile Include="hooking\methods\framestagenotify.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="hooking\methods\sendnetmsg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main\entry.h">

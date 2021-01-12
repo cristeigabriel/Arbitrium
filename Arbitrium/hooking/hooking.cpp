@@ -4,6 +4,7 @@
 
 bool hooking::initializer()
 {
+	// #STR: "Couldn't get trampoline region lock, will continue possibl
 	_hook = gAddresses.findRelToAbs<hookingGameOverlayRendererHookMethod>("gameoverlayrenderer.dll",
 		{ 0xE8, -1, -1, -1, -1, 0x83, 0xC4, 0x10, 0xEB, 0x21 },
 		1
@@ -12,12 +13,22 @@ bool hooking::initializer()
 	if (!_hook)
 		return false;
 
+	// #STR: "Aborting UnhookFunc because pRealFunctionAddr is null\n", "Aborting UnhookFunc because pRealFunctionAddr is not hooke, "System page siz ...
 	_unhook = gAddresses.findRelToAbs<hookingGameOverlayRendererUnhookmethod>("gameoverlayrenderer.dll",
 		{ 0xE8, -1, -1, -1, -1, 0x83, 0xC4, 0x08, 0xFF, 0x15, -1, -1, -1, -1 },
 		1
 		);
 
 	if (!_unhook)
+		return false;
+
+	// #STR: "SendNetMsg %s: stream[%s] buffer overflow (maxsize = %d)!\n", ...
+	// CNetChan SendNetMsg 55 8B EC 83 EC 08 56 8B F1 8B 86 ? ? ? ? 85 C0 
+	prototypes::signatures::sendNetMsg = gAddresses.find<LPVOID>("engine.dll",
+		{ 0x55, 0x8B, 0xEC, 0x83, 0xEC, 0x08, 0x56, 0x8B, 0xF1, 0x8B, 0x86, -1, -1, -1, -1, 0x85, 0xC0 }
+	);
+
+	if (!prototypes::signatures::sendNetMsg)
 		return false;
 
 	// #STR: "game_newmap", "mapname", "LevelInit"
@@ -49,6 +60,9 @@ bool hooking::initializer()
 	if (!prototypes::signatures::frameStageNotify)
 		return false;
 
+	if (!applyHook<prototypes::sendNetMsg>(prototypes::signatures::sendNetMsg))
+		return false;
+
 	if (!applyHook<prototypes::levelInit>(prototypes::signatures::levelInit))
 		return false;
 
@@ -63,6 +77,7 @@ bool hooking::initializer()
 
 void hooking::release()
 {
+	disableHook(prototypes::signatures::sendNetMsg);
 	disableHook(prototypes::signatures::levelInit);
 	disableHook(prototypes::signatures::createMove);
 	disableHook(prototypes::signatures::frameStageNotify);

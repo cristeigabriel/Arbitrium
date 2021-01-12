@@ -17,6 +17,9 @@ class CSaveRestoreData;
 
 class CUserCmd;
 
+class INetMessage;
+class INetChannelInfo;
+
 class IBaseClientDLL;
 class CHLClient;
 class CGlobalVarsBase;

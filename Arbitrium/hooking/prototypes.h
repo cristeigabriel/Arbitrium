@@ -25,6 +25,7 @@ namespace prototypes
 {
 	PROTOTYPE_SIGNATURES
 	(
+		sendNetMsg,
 		levelInit,
 		createMove,
 		frameStageNotify
@@ -32,11 +33,13 @@ namespace prototypes
 
 	DECLARE_SIGNATURES
 	(
+		signatures::sendNetMsg,
 		signatures::levelInit,
 		signatures::createMove,
 		signatures::frameStageNotify
 	);
 
+	PROTOTYPE_FUNCTION(sendNetMsg, bool(__fastcall)(void*, void*, INetMessage&, bool, bool));
 	PROTOTYPE_FUNCTION(levelInit, void(__fastcall)(void*, void*, const char*));
 	PROTOTYPE_FUNCTION(createMove, bool(__stdcall)(float, CUserCmd*));
 	PROTOTYPE_FUNCTION(frameStageNotify, void(__stdcall)(clientFrameStages));

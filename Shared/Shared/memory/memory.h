@@ -20,6 +20,13 @@ namespace memory
 {
 	namespace utilities
 	{
+		template <typename T, uint32_t index, typename... Args>
+		inline static T vFunc(void* _thisptr, Args... args)
+		{
+			using fn = T(__thiscall*)(void*, Args...);
+			return (*(fn**)(_thisptr))[index](_thisptr, args...);
+		}
+
 		template <typename T, uint32_t index, uint32_t offset>
 		inline static T getMethod(void* thisptr)
 		{
