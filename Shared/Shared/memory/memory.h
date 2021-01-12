@@ -18,9 +18,8 @@
 
 namespace memory
 {
-	class memoryWrapper
+	namespace utilities
 	{
-	public:
 		template <typename T, uint32_t index, uint32_t offset>
 		inline static T getMethod(void* thisptr)
 		{
