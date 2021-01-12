@@ -172,6 +172,7 @@
     <ClCompile Include="globals\globals.cpp" />
     <ClCompile Include="hooking\hooking.cpp" />
     <ClCompile Include="hooking\methods\createmove.cpp" />
+    <ClCompile Include="hooking\methods\levelinit.cpp" />
     <ClCompile Include="interfaces\interfaces.cpp" />
     <ClCompile Include="main\entry.cpp" />
   </ItemGroup>

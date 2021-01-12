@@ -24,13 +24,16 @@ namespace prototypes
 {
 	PROTOTYPE_SIGNATURES
 	(
+		levelInit,
 		createMove
 	);
 
 	DECLARE_SIGNATURES
 	(
+		signatures::levelInit,
 		signatures::createMove
 	);
 
+	PROTOTYPE_FUNCTION(levelInit, void(__fastcall)(void*, void*, const char*));
 	PROTOTYPE_FUNCTION(createMove, bool(__stdcall)(float, CUserCmd*));
 }
